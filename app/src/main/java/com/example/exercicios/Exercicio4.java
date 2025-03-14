@@ -1,6 +1,10 @@
 package com.example.exercicios;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +24,19 @@ public class Exercicio4 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+
+    public void gerarCheckBox(View view){
+        EditText nomeInput = findViewById(R.id.nome);
+        String nome = nomeInput.getText().toString();
+
+        for(int i = 0 ; i < nome.length(); i++){
+            CheckBox checkBox = new CheckBox(this);
+            checkBox.setText(String.valueOf(nome.charAt(i)));
+            LinearLayout linearLayout = findViewById(R.id.linearLayout);
+            linearLayout.addView(checkBox);
+        }
+
     }
 }
